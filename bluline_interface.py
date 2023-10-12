@@ -35,5 +35,3 @@ if __name__ == "__main__":
                 print(f"{names[ti]} (as of {times[ti]}) - {temp}°C")
         except KeyError:
             print("Invalid username or password!")
-        except:
-            print("An error occured during processing!")
