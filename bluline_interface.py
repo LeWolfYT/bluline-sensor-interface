@@ -13,18 +13,14 @@ def get_details(username, password):
 if __name__ == "__main__":
     import time as t
     import getpass as gp
-
     print("BluLog CLI")
-
     uname = input("Email/username: ")
     upass = gp.getpass()
-
-    d = getDetails(uname, upass)
+    d = get_details(uname, upass)
     if not d is None:
         temps = []
         names = []
         times = []
-    
         try:
             for dev in d["devices"]["tdl"]:
                 temps.append(dev["ms"]["m"]["t"])
