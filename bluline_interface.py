@@ -1,3 +1,6 @@
+"""
+A high-level API for BluLog devices.
+"""
 import requests as r
 import xmltodict as xml
 
@@ -5,8 +8,9 @@ def get_details(username, password):
     """
     Gets the details of all sensors associated with a certain account.
     """
+    x = "https://http-receiver.bluconsole.com/bluconsolerest/1.0/"
     try:
-        return xml.parse(r.get(f"https://http-receiver.bluconsole.com/bluconsolerest/1.0/resources/devices?uname={username}&upass={password}", timeout=10).content)
+        return xml.parse(r.get(x + f"resources/devices?uname={username}&upass={password}", timeout=10).content)
     except r.exceptions.Timeout:
         return None
 
