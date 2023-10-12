@@ -6,7 +6,7 @@ def get_details(username, password):
     Gets the details of all sensors associated with a certain account.
     """
     try:
-        return xml.parse(r.get(f"https://http-receiver.bluconsole.com/bluconsolerest/1.0/resources/devices?uname={username}&upass={password}").content)
+        return xml.parse(r.get(f"https://http-receiver.bluconsole.com/bluconsolerest/1.0/resources/devices?uname={username}&upass={password}", timeout=10).content)
     except r.exceptions.Timeout:
         return None
 
